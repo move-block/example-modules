@@ -1,0 +1,10 @@
+[package]
+name = 'PsudoLp'
+version = '1.0.0'
+
+[dependencies]
+AptosFramework = { git = 'https://github.com/aptos-labs/aptos-core.git', rev = 'main', subdir = 'aptos-move/framework/aptos-framework' }
+
+[addresses]
+admin = '62b40a9c076a87fe07ea670b50f453c79fc325888a884a38fdb8a455c15d9d55'
+resource = '7a6476237d38b82624c6d00964fdf1a88481bdd0340b53837cd69f224b95ee3f'

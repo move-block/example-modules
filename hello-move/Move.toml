@@ -1,0 +1,9 @@
+[package]
+name = 'HelloMove'
+version = '1.0.0'
+
+[dependencies]
+AptosFramework = { git = 'https://github.com/aptos-labs/aptos-core.git', rev = 'main', subdir = 'aptos-move/framework/aptos-framework' }
+
+[addresses]
+admin = '7347f1d3e6cfde42acc469beedc7365c63056fe1062dad3021d1656ca5b01529'
