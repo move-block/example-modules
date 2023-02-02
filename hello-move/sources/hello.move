@@ -20,7 +20,7 @@ module admin2::hello {
     }
 
     public entry fun hello(_: &signer) acquires Account {
-        let event_handle = borrow_global_mut<Account>(@admin);
+        let event_handle = borrow_global_mut<Account>(@admin2);
         let msg = string::utf8(b"hello move block!");
         emit_event(&mut event_handle.event_handle, Event {
             msg
@@ -28,7 +28,7 @@ module admin2::hello {
     }
 
     public entry fun bye(_: &signer) acquires Account {
-        let event_handle = borrow_global_mut<Account>(@admin);
+        let event_handle = borrow_global_mut<Account>(@admin2);
         let msg = string::utf8(b"bye move block!");
         emit_event(&mut event_handle.event_handle, Event {
             msg
