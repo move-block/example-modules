@@ -40,7 +40,7 @@ module resource::pseudo_lp {
         let (ausdc_burn_cap, atusdc_freeze_cap, ausdc_mint_cap) =
             coin::initialize<AptUSDC>(resource, string::utf8(b"apt-usdc"), string::utf8(b"AUSDC"), 8, true);
 
-        let signer_cap = retrieve_resource_account_cap(resource, @admin);
+        let signer_cap = retrieve_resource_account_cap(resource, @admin3);
 
         let caps = Caps {
             signer_cap,

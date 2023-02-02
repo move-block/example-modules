@@ -1,4 +1,4 @@
-module admin::hello {
+module admin2::hello {
     use aptos_framework::event::{emit_event, EventHandle};
     use std::string::String;
     use aptos_framework::account::new_event_handle;
