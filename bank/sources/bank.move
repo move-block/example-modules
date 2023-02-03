@@ -4,6 +4,7 @@ module bank_resource::bank {
     use aptos_framework::event::{EventHandle, emit_event};
     use std::string;
     use std::signer::address_of;
+    use aptos_framework::coin::transfer;
 
     struct Event has drop, store {
         sender: address,
@@ -26,7 +27,8 @@ module bank_resource::bank {
         })
     }
 
-    public entry fun pay_off(user: &signer, amount: u64) acquires Account {
+    public entry fun repay<T>(user: &signer, amount: u64) acquires Account {
+        transfer<T>(user, @bank_resource, amount);
         let event_handle = borrow_global_mut<Account>(@bank_resource);
         let msg = string::utf8(b"pay off coin to bank");
         emit_event(&mut event_handle.event_handle, Event {
