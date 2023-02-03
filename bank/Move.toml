@@ -1,0 +1,10 @@
+[package]
+name = 'Bank'
+version = '1.0.0'
+
+[dependencies]
+AptosFramework = { git = 'https://github.com/aptos-labs/aptos-core.git', rev = 'main', subdir = 'aptos-move/framework/aptos-framework' }
+
+[addresses]
+bank_admin = '3544cf0b102d421f4a59d4aacfce0f01ecd329705952676e6e068f7369395cef'
+bank_resource = 'cba834b3eac67fe9437cfc2b63ea6639788b951b4def8c0216ff8a2448502f59'
