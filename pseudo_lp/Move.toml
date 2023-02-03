@@ -6,5 +6,5 @@ version = '1.0.0'
 AptosFramework = { git = 'https://github.com/aptos-labs/aptos-core.git', rev = 'main', subdir = 'aptos-move/framework/aptos-framework' }
 
 [addresses]
-admin3 = '62b40a9c076a87fe07ea670b50f453c79fc325888a884a38fdb8a455c15d9d55'
-resource = '7a6476237d38b82624c6d00964fdf1a88481bdd0340b53837cd69f224b95ee3f'
+admin3 = 'a0b127a570b7c3aeef47120927b2b8d4393dd8899e216d323e49de58c51ebc08'
+resource = '75d2873a7709bfb84a1e0d01e7b5457593ba40c21d9389d7e377979b2724c776'

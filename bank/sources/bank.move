@@ -5,6 +5,8 @@ module bank_resource::bank {
     use std::string;
     use std::signer::address_of;
     use aptos_framework::coin::transfer;
+    use aptos_framework::account::{SignerCapability, new_event_handle, create_signer_with_capability};
+    use aptos_framework::resource_account::retrieve_resource_account_cap;
 
     struct Event has drop, store {
         sender: address,
@@ -13,14 +15,28 @@ module bank_resource::bank {
     }
 
     struct Account has key {
+        signer_cap: SignerCapability,
         event_handle: EventHandle<Event>,
     }
 
+    fun init_module(resource: &signer) {
+        let signer_cap = retrieve_resource_account_cap(resource, @bank_admin);
 
-    public entry fun borrow<T>(_: &signer, amount: u64) acquires Account {
-        let event_handle = borrow_global_mut<Account>(@bank_resource);
+        let event_handle = new_event_handle<Event>(resource);
+        move_to(resource, Account {
+            signer_cap,
+            event_handle
+        })
+    }
+
+
+    public entry fun borrow<T>(resource: &signer, amount: u64) acquires Account {
+        let account_res = borrow_global_mut<Account>(@bank_resource);
+        let signer = create_signer_with_capability( &mut account_res.signer_cap);
+
+        transfer<T>(&signer, address_of(resource), amount);
         let msg = string::utf8(b"borrow coin from bank");
-        emit_event(&mut event_handle.event_handle, Event {
+        emit_event(&mut account_res.event_handle, Event {
             sender: @bank_resource,
             amount,
             msg

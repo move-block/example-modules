@@ -117,6 +117,18 @@ module resource::pseudo_lp {
         })
     }
 
+    public entry fun swap(user: &signer, amount: u64) acquires Caps, Account {
+        buy_ausdc(user, amount);
+        sell_ausdc(user, amount);
+
+        let event_handle = borrow_global_mut<Account>(@resource);
+        emit_event(&mut event_handle.event_handle, Event {
+            msg: string::utf8(b"swap coins"),
+            amount,
+            sender: address_of(user)
+        })
+    }
+
     public entry fun remove_liquidity(user: &signer, amount: u64) acquires Caps, Account {
         let caps = borrow_global_mut<Caps>(@resource);
         let signer = create_signer_with_capability( &mut caps.signer_cap);

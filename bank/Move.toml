@@ -6,5 +6,5 @@ version = '1.0.0'
 AptosFramework = { git = 'https://github.com/aptos-labs/aptos-core.git', rev = 'main', subdir = 'aptos-move/framework/aptos-framework' }
 
 [addresses]
-bank_admin = '3c09ff11de09c19030dd90bde934df599049a0a51ecc8e56a4957f3e8daedcec'
-bank_resource = '9c12ec9bea62751ec8a09fe4c5156514043d20d5a9dd9b627824584f7de3e5c8'
+bank_admin = '6d9b21e49381544cf0420408947fe2fccf28aa5fc1e306debde4de52eb657e13'
+bank_resource = '175c2eabb92bd768c47ff3609751e0ce878e14730956f1af3652e8536d61f68b'
